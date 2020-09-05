@@ -1,0 +1,24 @@
+---
+
+- name: Install software-properties-common package
+  apt:
+    name: software-properties-common
+
+- name: Add ansible APT repository
+  apt_repository:
+    repo: ppa:ansible/ansible
+
+- name: Update apt cache
+  apt: 
+    update_cache: yes
+
+- name: Install ansible
+  apt:
+    name: ansible
+    state: latest
+
+
+#- name: Install Ansible via pip
+#  pip:
+#    name: ansible
+#    extra_args: --user
